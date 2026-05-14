@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ejemplo</title>
+
+    <!-- =========================================
+         FUENTES
+    ========================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- =========================================
+         KATEX (ECUACIONES LATEX)
+         Puedes cambiarlo por MathJax si prefieres.
+    ========================================== -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+    <script defer
+            src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+    <script defer
+            src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.body);"></script>
+
+    <!-- =========================================
+         ESTILOS
+    ========================================== -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+<!-- =========================================
+     BARRA SUPERIOR
+========================================== -->
+
+<header class="topbar">
+
+    <div class="logo">
+        Enciclopedia FyQ
+    </div>
+
+    <div class="search-container">
+        <input
+            type="text"
+            class="search-bar"
+            placeholder="Buscar artículos...">
+    </div>
+
+    <select class="level-selector">
+        <option>ESO básico</option>
+        <option>ESO avanzado</option>
+        <option>Bachillerato</option>
+        <option>Universidad</option>
+    </select>
+
+</header>
+
+
+<!-- =========================================
+     LAYOUT PRINCIPAL
+========================================== -->
+
+<div class="layout">
+
+
+    <!-- =====================================
+         SIDEBAR
+    ====================================== -->
+
+    <aside class="sidebar">
+
+        <h2>Contenido</h2>
+
+        <ul>
+            <li><a href="#introduccion">Introducción</a></li>
+            <li><a href="#historia">Historia</a></li>
+            <li><a href="#fundamentos">Fundamentos físicos</a></li>
+            <li><a href="#ecuaciones">Ecuaciones importantes</a></li>
+            <li><a href="#ejemplos">Ejemplos</a></li>
+            <li><a href="#curiosidades">Curiosidades</a></li>
+            <li><a href="#relacionados">Artículos relacionados</a></li>
+        </ul>
+
+    </aside>
+
+
+    <!-- =====================================
+         ARTÍCULO PRINCIPAL
+    ====================================== -->
+
+    <main class="content">
+
+        <h1>Agujeros negros</h1>
+<p>@subtitle Un viaje a los objetos más extremos del universo</p>
+<p>@nivel Bachillerato</p>
+<p>---</p>
+<h2>Introducción</h2>
+<p>Un <strong>agujero negro</strong> es una región del espacio-tiempo donde la gravedad es tan intensa que ni siquiera la luz puede escapar.</p>
+<p>Este concepto surge de la teoría de la <em>relatividad general</em> formulada por Albert Einstein.</p>
+<p>Puedes leer más sobre esto en el artículo de <a href='relatividad.html'>Relatividad general</a>.</p>
+<p>---</p>
+<p>@image imagenes/agujero_negro.jpg | Representación artística de un agujero negro</p>
+<p>---</p>
+<h2>Historia</h2>
+<h3>Primeras ideas</h3>
+<p>Ya en el siglo XVIII, John Michell propuso la existencia de “estrellas oscuras”, objetos tan masivos que la luz no podía escapar.</p>
+<h3>Relatividad general</h3>
+<p>En 1915, Einstein desarrolló la teoría que explica la gravedad como curvatura del espacio-tiempo.</p>
+<p>---</p>
+<p>@note Importante: el concepto moderno de agujero negro no es simplemente una estrella apagada, sino una deformación extrema del espacio-tiempo.</p>
+<p>---</p>
+<h2>Fundamentos físicos</h2>
+<p>La gravedad depende de la masa y la distancia. Cuanto más concentrada está la masa, mayor es la curvatura.</p>
+<p>La relación entre masa y energía viene dada por:</p>
+<p>$$E = mc^2$$</p>
+<p>El radio de Schwarzschild es:</p>
+<p>$$r_s = \frac{2GM}{c^2}$$</p>
+<p>---</p>
+<h2>Simulación (ejemplo de código)</h2>
+<p>Podemos aproximar el radio de un agujero negro con este código:</p>
+
+    </main>
+
+</div>
+
+</body>
+</html>

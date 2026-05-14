@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{TITLE}}</title>
+
+    <!-- =========================================
+         FUENTES
+    ========================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- =========================================
+         KATEX (ECUACIONES LATEX)
+         Puedes cambiarlo por MathJax si prefieres.
+    ========================================== -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+    <script defer
+            src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+    <script defer
+            src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.body);"></script>
+
+    <!-- =========================================
+         ESTILOS
+    ========================================== -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+<!-- =========================================
+     BARRA SUPERIOR
+========================================== -->
+
+<header class="topbar">
+
+    <div class="logo">
+        Enciclopedia FyQ
+    </div>
+
+    <div class="search-container">
+        <input
+            type="text"
+            class="search-bar"
+            placeholder="Buscar artículos...">
+    </div>
+
+    <select class="level-selector">
+        <option>ESO básico</option>
+        <option>ESO avanzado</option>
+        <option>Bachillerato</option>
+        <option>Universidad</option>
+    </select>
+
+</header>
+
+
+<!-- =========================================
+     LAYOUT PRINCIPAL
+========================================== -->
+
+<div class="layout">
+
+
+    <!-- =====================================
+         SIDEBAR
+    ====================================== -->
+
+    <aside class="sidebar">
+
+        <h2>Contenido</h2>
+
+        <ul>
+            <li><a href="#introduccion">Introducción</a></li>
+            <li><a href="#historia">Historia</a></li>
+            <li><a href="#fundamentos">Fundamentos físicos</a></li>
+            <li><a href="#ecuaciones">Ecuaciones importantes</a></li>
+            <li><a href="#ejemplos">Ejemplos</a></li>
+            <li><a href="#curiosidades">Curiosidades</a></li>
+            <li><a href="#relacionados">Artículos relacionados</a></li>
+        </ul>
+
+    </aside>
+
+
+    <!-- =====================================
+         ARTÍCULO PRINCIPAL
+    ====================================== -->
+
+    <main class="content">
+
+        {{CONTENT}}
+
+    </main>
+
+</div>
+
+</body>
+</html>

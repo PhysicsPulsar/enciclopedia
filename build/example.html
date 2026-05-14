@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nombre del artículo | Enciclopedia FyQ</title>
+
+    <!-- =========================================
+         FUENTES
+    ========================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- =========================================
+         KATEX (ECUACIONES LATEX)
+         Puedes cambiarlo por MathJax si prefieres.
+    ========================================== -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+    <script defer
+            src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+    <script defer
+            src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.body);"></script>
+
+    <!-- =========================================
+         ESTILOS
+    ========================================== -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+<!-- =========================================
+     BARRA SUPERIOR
+========================================== -->
+
+<header class="topbar">
+
+    <div class="logo">
+        Enciclopedia FyQ
+    </div>
+
+    <div class="search-container">
+        <input
+            type="text"
+            class="search-bar"
+            placeholder="Buscar artículos...">
+    </div>
+
+    <select class="level-selector">
+        <option>ESO básico</option>
+        <option>ESO avanzado</option>
+        <option>Bachillerato</option>
+        <option>Universidad</option>
+    </select>
+
+</header>
+
+
+<!-- =========================================
+     LAYOUT PRINCIPAL
+========================================== -->
+
+<div class="layout">
+
+
+    <!-- =====================================
+         SIDEBAR
+    ====================================== -->
+
+    <aside class="sidebar">
+
+        <h2>Contenido</h2>
+
+        <ul>
+            <li><a href="#introduccion">Introducción</a></li>
+            <li><a href="#historia">Historia</a></li>
+            <li><a href="#fundamentos">Fundamentos físicos</a></li>
+            <li><a href="#ecuaciones">Ecuaciones importantes</a></li>
+            <li><a href="#ejemplos">Ejemplos</a></li>
+            <li><a href="#curiosidades">Curiosidades</a></li>
+            <li><a href="#relacionados">Artículos relacionados</a></li>
+        </ul>
+
+    </aside>
+
+
+    <!-- =====================================
+         ARTÍCULO PRINCIPAL
+    ====================================== -->
+
+    <main class="content">
+
+        <h1 class="article-title">
+            Agujeros negros
+        </h1>
+
+        <p class="article-subtitle">
+            Objetos extremadamente compactos cuya gravedad es tan intensa que ni siquiera la luz puede escapar.
+        </p>
+
+
+        <!-- =================================
+             INTRODUCCIÓN
+        ================================== -->
+
+        <section id="introduccion">
+
+            <h2>Introducción</h2>
+
+            <p>
+                Un <strong>agujero negro</strong> es una región del espacio-tiempo donde la gravedad es extremadamente intensa.
+                Estos objetos aparecen como solución de las ecuaciones de la relatividad general formuladas por
+                <a href="#">Albert Einstein</a>.
+            </p>
+
+            <p>
+                Puedes consultar también el artículo sobre
+                <a href="#">Relatividad general</a>
+                para comprender el contexto teórico.
+            </p>
+
+            <blockquote>
+                “Los agujeros negros son donde Dios dividió entre cero.”
+                — Steven Wright
+            </blockquote>
+
+        </section>
+
+
+        <!-- =================================
+             IMAGEN DE EJEMPLO
+        ================================== -->
+
+        <div class="image-container">
+
+            <img
+                src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Black_hole_-_Messier_87_crop_max_res.jpg"
+                alt="Imagen de un agujero negro">
+
+            <p class="image-caption">
+                Primera imagen obtenida de un agujero negro por el Event Horizon Telescope.
+            </p>
+
+        </div>
+
+
+        <!-- =================================
+             HISTORIA
+        ================================== -->
+
+        <section id="historia">
+
+            <h2>Historia</h2>
+
+            <p>
+                La idea de un objeto del que la luz no puede escapar apareció ya en el siglo XVIII,
+                aunque el concepto moderno surge con la relatividad general.
+            </p>
+
+            <h3>Primeras ideas</h3>
+
+            <p>
+                El científico John Michell propuso en 1783 la existencia de “estrellas oscuras”.
+            </p>
+
+            <h3>Relatividad general</h3>
+
+            <p>
+                En 1915, Einstein formuló la teoría de la relatividad general, que describe la gravedad
+                como la curvatura del espacio-tiempo.
+            </p>
+
+        </section>
+
+
+        <!-- =================================
+             FUNDAMENTOS
+        ================================== -->
+
+        <section id="fundamentos">
+
+            <h2>Fundamentos físicos</h2>
+
+            <p>
+                La gravedad deforma el espacio-tiempo. Cuanto mayor es la masa y menor el tamaño,
+                mayor es la curvatura producida.
+            </p>
+
+            <div class="note-box">
+                <strong>Importante:</strong>
+                el horizonte de sucesos es la frontera a partir de la cual nada puede escapar.
+            </div>
+
+            <ul>
+                <li>Masa</li>
+                <li>Radio de Schwarzschild</li>
+                <li>Horizonte de sucesos</li>
+                <li>Singularidad</li>
+            </ul>
+
+        </section>
+
+
+        <!-- =================================
+             ECUACIONES
+        ================================== -->
+
+        <section id="ecuaciones">
+
+            <h2>Ecuaciones importantes</h2>
+
+            <p>
+                La energía y la masa están relacionadas mediante:
+            </p>
+
+            <p>
+                $$E = mc^2$$
+            </p>
+
+            <p>
+                El radio de Schwarzschild viene dado por:
+            </p>
+
+            <p>
+                $$r_s = \frac{2GM}{c^2}$$
+            </p>
+
+            <p>
+                La ecuación de campo de Einstein es:
+            </p>
+
+            <p>
+                $$G_{\mu\nu} + \Lambda g_{\mu\nu} = \frac{8\pi G}{c^4}T_{\mu\nu}$$
+            </p>
+
+        </section>
+
+
+        <!-- =================================
+             EJEMPLOS
+        ================================== -->
+
+        <section id="ejemplos">
+
+            <h2>Ejemplos</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Objeto</th>
+                        <th>Masa</th>
+                        <th>Tipo</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Sagitario A*</td>
+                        <td>4 millones de masas solares</td>
+                        <td>Supermasivo</td>
+                    </tr>
+
+                    <tr>
+                        <td>M87*</td>
+                        <td>6500 millones de masas solares</td>
+                        <td>Supermasivo</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <pre><code>// Ejemplo de bloque de código
+
+                function calcularRadioSchwarzschild(M) {
+                    return (2 * G * M) / (c * c);
+                }
+            </code></pre>
+
+        </section>
+
+
+        <!-- =================================
+             CURIOSIDADES
+        ================================== -->
+
+        <section id="curiosidades">
+
+            <h2>Curiosidades</h2>
+
+            <ol>
+                <li>Los agujeros negros pueden evaporarse lentamente mediante radiación de Hawking.</li>
+                <li>El tiempo transcurre más lentamente cerca de ellos.</li>
+                <li>Existen agujeros negros supermasivos en el centro de muchas galaxias.</li>
+            </ol>
+
+        </section>
+
+
+        <!-- =================================
+             RELACIONADOS
+        ================================== -->
+
+        <section id="relacionados">
+
+            <h2>Artículos relacionados</h2>
+
+            <ul>
+                <li><a href="#">Relatividad general</a></li>
+                <li><a href="#">Ondas gravitacionales</a></li>
+                <li><a href="#">Estrellas de neutrones</a></li>
+                <li><a href="#">Cosmología</a></li>
+            </ul>
+
+        </section>
+
+
+        <!-- =================================
+             FOOTER
+        ================================== -->
+
+        <footer>
+
+            <p>
+                Enciclopedia FyQ · Proyecto educativo de física y química.
+            </p>
+
+            <p>
+                Última actualización: 2026.
+            </p>
+
+            <p>
+                Contenido distribuido bajo licencia Creative Commons.
+            </p>
+
+        </footer>
+
+    </main>
+
+</div>
+
+</body>
+</html>
