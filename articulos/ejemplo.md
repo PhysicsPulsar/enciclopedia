@@ -2,9 +2,6 @@
 
 @subtitle Un viaje a los objetos más extremos del universo
 
-@nivel Bachillerato
-
----
 
 ## Introducción
 
@@ -14,11 +11,11 @@ Este concepto surge de la teoría de la *relatividad general* formulada por Albe
 
 Puedes leer más sobre esto en el artículo de [Relatividad general](relatividad.html).
 
----
+@quote Esto es una cita.   - A. Einstein
 
-@image imagenes/agujero_negro.jpg | Representación artística de un agujero negro
 
----
+@image test.jpg | zgz.jpg | Representación artística de un agujero negro | 200px
+
 
 ## Historia
 
@@ -30,11 +27,9 @@ Ya en el siglo XVIII, John Michell propuso la existencia de “estrellas oscuras
 
 En 1915, Einstein desarrolló la teoría que explica la gravedad como curvatura del espacio-tiempo.
 
----
 
 @note Importante: el concepto moderno de agujero negro no es simplemente una estrella apagada, sino una deformación extrema del espacio-tiempo.
 
----
 
 ## Fundamentos físicos
 
@@ -48,7 +43,6 @@ El radio de Schwarzschild es:
 
 $$r_s = \frac{2GM}{c^2}$$
 
----
 
 ## Simulación (ejemplo de código)
 

@@ -67,18 +67,31 @@ def write_file(path, content):
 # PARSEO INLINE (negrita, cursiva, enlaces)
 # =========================================================
 
+import re
+
 def parse_inline(text):
     """Convierte formato Markdown básico dentro de una línea"""
 
     try:
-        # Negrita **texto**
+        # 🔗 Wiki links [[texto|pagina]]
+        text = re.sub(
+            r"\[\[(.*?)\|(.*?)\]\]",
+            r"<a href='\2.html'>\1</a>",
+            text
+        )
+
+        # 🔗 Enlaces Markdown [texto](url)
+        text = re.sub(
+            r"\[(.*?)\]\((.*?)\)",
+            r"<a href='\2'>\1</a>",
+            text
+        )
+
+        # 🟦 Negrita **texto**
         text = re.sub(r"\*\*(.*?)\*\*", r"<strong>\1</strong>", text)
 
-        # Cursiva *texto*
+        # 🟨 Cursiva *texto*
         text = re.sub(r"\*(.*?)\*", r"<em>\1</em>", text)
-
-        # Enlaces [texto](url)
-        text = re.sub(r"\[(.*?)\]\((.*?)\)", r"<a href='\2'>\1</a>", text)
 
         return text
 
@@ -92,69 +105,79 @@ def parse_inline(text):
 # BLOQUES ESPECIALES (@image, @note, etc.)
 # =========================================================
 
-def parse_special_blocks(lines):
+def parse_special_block(text):
     """Procesa bloques especiales del Markdown"""
 
-    html = []
-
     try:
-        for line in lines:
-            line = line.strip()
+        # -----------------------------
+        # IMÁGENES
+        # @image ruta | pie
+        # -----------------------------
+        if text.startswith("@image"):
+            try:
+                parts = text.replace("@image", "").strip().split("|")
 
-            # -----------------------------
-            # IMÁGENES
-            # @image ruta | pie
-            # -----------------------------
-            if line.startswith("@image"):
-                try:
-                    parts = line.replace("@image", "").strip().split("|")
-                    src = parts[0].strip()
-                    caption = parts[1].strip() if len(parts) > 1 else ""
+                # Todas las imágenes antes del último parámetro de texto
+                # Ejemplo:
+                # @image foto1.jpg | foto2.jpg | foto3.jpg | Caption aquí | 300px
 
-                    html.append(f"""
-<div class='image-container'>
-    <img src='{src}' alt='imagen'>
-    <p class='image-caption'>{caption}</p>
-</div>
-""")
+                # Separar parámetros
+                images = [p.strip() for p in parts[:-2]]
+                caption = parts[-2].strip() if len(parts) >= 2 else ""
+                max_height = parts[-1].strip() if len(parts) >= 1 else "300px"
 
-                    print(f"[OK] Imagen procesada: {src}")
+                print(f"[OK] Bloque de imágenes procesado: {images}")
 
-                except Exception:
-                    print("[ERROR] Error procesando @image")
+                # Generar HTML de todas las imágenes
+                images_html = "\n".join([
+                    f"<img src='../imagenes/{img}' onclick='openLightbox(this.src)' alt='imagen'>"
+                    for img in images
+                ])
 
-                continue
+                return f"""
+                <div class='image-container'>
+                    <div class='image-row' style='height:{max_height};'>
+                        {images_html}
+                    </div>
+                    <p class='image-caption'>{caption}</p>
+                </div>
+                """
+                
 
-            # -----------------------------
-            # NOTAS
-            # @note texto
-            # -----------------------------
-            if line.startswith("@note"):
-                content = line.replace("@note", "").strip()
-                html.append(f"<div class='note-box'>{content}</div>")
+            except Exception:
+                print("[ERROR] Error procesando @image")
 
-                print("[OK] Nota procesada")
-                continue
+        # -----------------------------
+        # NOTAS
+        # @note texto
+        # -----------------------------
+        if text.startswith("@note"):
+            content = text.replace("@note", "").strip()
+            return(f"<div class='note-box'>{parse_inline(content)}</div>")
 
-            # -----------------------------
-            # SUBTÍTULOS
-            # @subtitle texto
-            # -----------------------------
-            if line.startswith("@subtitle"):
-                content = line.replace("@subtitle", "").strip()
-                html.append(f"<p class='article-subtitle'>{content}</p>")
+            print("[OK] Nota procesada")
+        
+        if text.startswith("@quote"):
+            content = text.replace("@quote", "").strip()
+            content = content.replace("--","—")
+            return(f"<blockquote>{content}</blockquote>")
 
-                print("[OK] Subtítulo procesado")
-                continue
+        # -----------------------------
+        # SUBTÍTULOS
+        # @subtitle texto
+        # -----------------------------
+        if text.startswith("@subtitle"):
+            content = text.replace("@subtitle", "").strip()
+            return(f"<p class='article-subtitle'>{content}</p>")
 
-            # Si no es especial, lo ignoramos aquí
-            html.append(line)
+            print("[OK] Subtítulo procesado")
+
+        # Si no es especial, lo ignoramos aquí
+        return(text)
 
     except Exception as e:
         print("[ERROR] Fallo en parse_special_blocks")
         print(traceback.format_exc())
-
-    return html
 
 
 # =========================================================
@@ -165,7 +188,13 @@ def markdown_to_html(md):
     """Convierte Markdown simple a HTML"""
 
     try:
-        lines = md.split("\n")
+        # Split into paragraphs instead of lines
+        paragraphs = md.strip().split("\n\n")
+
+        # Remove internal line breaks inside each paragraph
+        lines = [
+            " ".join(p.strip().splitlines())
+            for p in paragraphs]
         html = []
 
         in_code = False
@@ -196,15 +225,23 @@ def markdown_to_html(md):
             # -----------------------------
             if stripped.startswith("###"):
                 html.append(f"<h3>{parse_inline(stripped[3:].strip())}</h3>")
+                continue
             elif stripped.startswith("##"):
                 html.append(f"<h2>{parse_inline(stripped[2:].strip())}</h2>")
+                continue
             elif stripped.startswith("#"):
-                html.append(f"<h1>{parse_inline(stripped[1:].strip())}</h1>")
+                html.append(f"<h1 class='article-title'>{parse_inline(stripped[1:].strip())}</h1>")
+                continue
 
             # -----------------------------
             # PÁRRAFOS
             # -----------------------------
-            elif stripped != "":
+
+            if stripped.startswith('@'):
+                html.append(f"{parse_special_block(stripped)}")
+                continue
+
+            else:
                 html.append(f"<p>{parse_inline(stripped)}</p>")
 
         print("[OK] Markdown convertido a HTML")

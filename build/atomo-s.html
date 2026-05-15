@@ -25,7 +25,16 @@
 
     <script defer
             src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
-            onload="renderMathInElement(document.body);"></script>
+            onload="renderMathInElement(document.body, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '$', right: '$', display: false},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
+                });"
+            ></script>
 
     <!-- =========================================
          ESTILOS
@@ -96,12 +105,62 @@
 
     <main class="content">
 
-        <h1>Átomo</h1>
-<p>El átomo es la unidad de materia que compone cada uno de los elementos químicos. Los átomos están formados por electrones, protones y neutrones.</p>
+        <h1 class='article-title'>Los átomos</h1>
+<p class='article-subtitle'>Las piezas de la química</p>
+<p>Los átomos son las unidades de materia más pequeñas que componen los <a href=' elementos_quimicos-s.html'>elementos químicos</a>. Son extremadamente pequeños, de apenas unos 0.1 nanómetros de diámetro. Y a su vez están formados por cuerpos más pequeños: los electrones, protones y neutrones.</p>
+<h2>Historia de los modelos atómicos</h2>
+<h3>Atomismo en la antiguedad</h3>
+<p>Durante la antigua Grecia, algunos filósofos propusieron que la materia no podría devidirse indefinidamente. Por ejemplo, que una gota de agua no se podía divir siempre en gotas de agua cada vez más pequeñas. Por lo que debía de existir una parte indivisible de materia a la que llamaron átomo.</p>
+<div class='note-box'>La palabra <strong>átomo</strong> viene del griego antiguo y significa <em>indivisible</em>. Está compuesta por el prefijo <em>a-</em>, que denota ausencia, y el sustantivo <em>tomo</em>, que significa parte; dando el significado combinado de <em>sin partes</em>, y por tanto, que no se puede dividir.</div>
+<h3>Ley de las proporciones múltiples</h3>
+<p>A principios del siglo XIX, John Dalton descubrió que aunque dos elementos químicos pueden combinarse entre sí en distintas proporciones, entre ellas siempre se encontraba una relación sencilla de proporcionalidad. Lo que le llevó a pensar en la teoría atómica para poder explicarlo.</p>
+<p>Por ejemplo, existen dos compuestos de óxido de estaño. Dalton descubrió que uno de ellos contiene <em>exactamente</em> el doble de oxígeno que el otro (por cada gramo de estaño sin oxidar). Si cada elemento está formado por átomos iguales entre sí, podríamos explicar de forma simple esta coincidencia pensando que en un óxido cada átomo de estaño se empareja con uno de oxígeno, mientras que en el otro óxido cada átomo de estaño va acompañado de dos átomos de oxígeno.</p>
+
+                <div class='image-container'>
+                    <div class='image-row' style='height:300px;'>
+                        <img src='../imagenes/daltons_symbols.gif' onclick='openLightbox(this.src)' alt='imagen'>
+                    </div>
+                    <p class='image-caption'>Átomos y moléculas de Dalton (1808)</p>
+                </div>
+                
+<h3>Descubrimiento del electrón</h3>
+<blockquote>Considero al atomo como conteniendo un gran numero de cuerpos mas pequeños que llamare corpusculos; estos corpusculos son iguales entre si; la masa de un corpusculo es la masa del ion negativo en un gas a baja presion, esto es, alrededor de $3 \cdot 10^{-26}$ de un gramo. En el atomo normal, esta reunion de corpusculos forma un sistema que es electricamente neutro. Aunque los corpusculos individuales se comportan como iones negativos, cuando se reunen en un atomo neutro el efecto negativo se compensa por algo que hace que el espacio por el que los corpusculos estan dispersos actúe como si tuviesen una carga de electricidad positiva igual en magnitud a la suma de las cargas negativas en los corpusculos. Considero la electrificacion de un gas debida a la ruptura de algunos de los atomos del gas, lo que produce la separacion de un corpusculo de alguno de los atomos. Los corpusculos separados se comportan como iones negativos, cada uno transportando una carga negativa, que por brevedad llamaremos la carga unidad, mientras que la parte del atomo que queda detras se comporta como un ion positivo con la unidad de carga positiva y una masa grande comparada con la del ion negativo (Thomson, J. J., 1899).</blockquote>
+<h3>Descubrimiento del núcleo</h3>
+<blockquote>La teoría de Sir J. J. Thomson se basa en la suposición de que la difusión debida a un único encuentro atómico es pequeña y la particular estructura supuesta para el átomo no admite una desviación muy grande de una partícula a al atravesar un sólo átomo, salvo que se suponga que el diámetro de la esfera de electricidad positiva es diminuto comparado con el diámetro de la esfera de influencia del átomo. — Rutherford (1911)</blockquote>
+<h3>Cuantización de las óbitas</h3>
+<h3>Modelo mecánico cuántico</h3>
+<h2>Partículas subatómicas</h2>
+<h2>Propiedades de los átomos</h2>
+<h2>Origen de los átomos</h2>
 
     </main>
 
 </div>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img">
+</div>
+
+<script>
+    function openLightbox(src) {
+        const lb = document.getElementById("lightbox");
+        const img = document.getElementById("lightbox-img");
+
+        img.src = src;
+        lb.classList.add("show");
+    }
+
+    function closeLightbox() {
+        document.getElementById("lightbox").classList.remove("show");
+    }
+
+    // cerrar con ESC
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape") {
+            closeLightbox();
+        }
+    });
+</script>
 
 </body>
 </html>

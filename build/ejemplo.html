@@ -25,7 +25,16 @@
 
     <script defer
             src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
-            onload="renderMathInElement(document.body);"></script>
+            onload="renderMathInElement(document.body, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '\\[', right: '\\]', display: true},
+                        {left: '$', right: '$', display: false},
+                        {left: '\\(', right: '\\)', display: false}
+                    ],
+                    throwOnError: false
+                });"
+            ></script>
 
     <!-- =========================================
          ESTILOS
@@ -96,38 +105,65 @@
 
     <main class="content">
 
-        <h1>Agujeros negros</h1>
-<p>@subtitle Un viaje a los objetos más extremos del universo</p>
-<p>@nivel Bachillerato</p>
-<p>---</p>
+        <h1 class='article-title'>Agujeros negros</h1>
+<p class='article-subtitle'>Un viaje a los objetos más extremos del universo</p>
 <h2>Introducción</h2>
 <p>Un <strong>agujero negro</strong> es una región del espacio-tiempo donde la gravedad es tan intensa que ni siquiera la luz puede escapar.</p>
 <p>Este concepto surge de la teoría de la <em>relatividad general</em> formulada por Albert Einstein.</p>
 <p>Puedes leer más sobre esto en el artículo de <a href='relatividad.html'>Relatividad general</a>.</p>
-<p>---</p>
-<p>@image imagenes/agujero_negro.jpg | Representación artística de un agujero negro</p>
-<p>---</p>
+<blockquote>Esto es una cita.   - A. Einstein</blockquote>
+
+                <div class='image-container'>
+                    <div class='image-row' style='height:200px;'>
+                        <img src='../imagenes/test.jpg' onclick='openLightbox(this.src)' alt='imagen'>
+<img src='../imagenes/zgz.jpg' onclick='openLightbox(this.src)' alt='imagen'>
+                    </div>
+                    <p class='image-caption'>Representación artística de un agujero negro</p>
+                </div>
+                
 <h2>Historia</h2>
 <h3>Primeras ideas</h3>
 <p>Ya en el siglo XVIII, John Michell propuso la existencia de “estrellas oscuras”, objetos tan masivos que la luz no podía escapar.</p>
 <h3>Relatividad general</h3>
 <p>En 1915, Einstein desarrolló la teoría que explica la gravedad como curvatura del espacio-tiempo.</p>
-<p>---</p>
-<p>@note Importante: el concepto moderno de agujero negro no es simplemente una estrella apagada, sino una deformación extrema del espacio-tiempo.</p>
-<p>---</p>
+<div class='note-box'>Importante: el concepto moderno de agujero negro no es simplemente una estrella apagada, sino una deformación extrema del espacio-tiempo.</div>
 <h2>Fundamentos físicos</h2>
 <p>La gravedad depende de la masa y la distancia. Cuanto más concentrada está la masa, mayor es la curvatura.</p>
 <p>La relación entre masa y energía viene dada por:</p>
 <p>$$E = mc^2$$</p>
 <p>El radio de Schwarzschild es:</p>
 <p>$$r_s = \frac{2GM}{c^2}$$</p>
-<p>---</p>
 <h2>Simulación (ejemplo de código)</h2>
 <p>Podemos aproximar el radio de un agujero negro con este código:</p>
 
     </main>
 
 </div>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img">
+</div>
+
+<script>
+    function openLightbox(src) {
+        const lb = document.getElementById("lightbox");
+        const img = document.getElementById("lightbox-img");
+
+        img.src = src;
+        lb.classList.add("show");
+    }
+
+    function closeLightbox() {
+        document.getElementById("lightbox").classList.remove("show");
+    }
+
+    // cerrar con ESC
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape") {
+            closeLightbox();
+        }
+    });
+</script>
 
 </body>
 </html>
